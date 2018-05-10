@@ -25,6 +25,19 @@ config :phx_gcp_cluster, PhxGcpClusterWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :libcluster,
+  topologies: [
+    phxgcpcluster: [
+      strategy: Cluster.Strategy.Kubernetes,
+      config: [
+        # mode: :dns,
+        kubernetes_node_basename: "app",
+        # kubernetes_selector: "app=phx_gcp_cluster",
+        kubernetes_selector: "app=phxgcpcluster",
+        polling_interval: 10_000,
+      ]
+    ]
+  ]
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
