@@ -28,6 +28,8 @@
     $ kubectl describe pod phxclus-<id>
     $ kubectl logs phxclus-<id>
 
+If you see something like `[info] [libcluster:phxgcpcluster] connected to :"phxgcpcluster@10.0.1.10"` then it worked!
+
 ----
 
 ### Delete Kubernetes Cluster

@@ -31,7 +31,7 @@ config :libcluster,
       strategy: Cluster.Strategy.Kubernetes,
       config: [
         # mode: :dns,
-        kubernetes_node_basename: "app",
+        kubernetes_node_basename: "phxgcpcluster",
         # kubernetes_selector: "app=phx_gcp_cluster",
         kubernetes_selector: "app=phxgcpcluster",
         polling_interval: 10_000,

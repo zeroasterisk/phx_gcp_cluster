@@ -38,7 +38,7 @@ spec:
       containers:
       - name: phxgcpcluster
         # image: phxgcpcluster:latest
-        image: gcr.io/flowing-silo-192900/phx_gcp_cluster:v2
+        image: gcr.io/flowing-silo-192900/phx_gcp_cluster:v1
         # image: gcr.io/base-154519/phxgcpcluster:0.0.3
         imagePullPolicy: IfNotPresent
         resources:
@@ -48,6 +48,7 @@ spec:
         env:
         - name: PORT
           value: "8080"
+          # look at the vm.args file, this must match
         - name: MY_BASENAME
           value: phxgcpcluster
         - name: MY_POD_NAMESPACE
@@ -66,8 +67,10 @@ spec:
           value: "true"
         - name: RELEASE_CONFIG_DIR
           value: /beamconfig
+          # look at the vm.args file, this must match
         - name: ERLANG_COOKIE
           valueFrom:
+            # special secret config FTW!
             secretKeyRef:
               name: app-config
               key: erlang-cookie

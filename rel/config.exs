@@ -37,7 +37,8 @@ environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"5tB$]0=z|;%94doMXuJ=5P@HBJEx}F4wHLQMUOxJK`WVGTSdmijzVjdh0sK$!r.("
-  set vm_args: "rel/vm.args.prod"
+  # instead, we are now setting this via kube settings
+  # set vm_args: "rel/vm.args.prod"
 end
 
 # You may define one or more releases in this file.
